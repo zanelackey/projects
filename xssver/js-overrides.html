@@ -1,0 +1,29 @@
+<script>
+(function() {
+  var proxiedAlert = window.alert;
+  window.alert = function() {
+    location="XSSDETECTED";
+  };
+})();
+
+(function() {
+  var proxiedUnescape = unescape;
+  unescape = function() {
+    location="XSSDETECTED";
+  };
+})();
+
+(function() {
+  var proxiedWrite = document.write;
+  document.write = function() {
+   location="XSSDETECTED";
+  };
+})();
+
+(function() {
+  var proxiedFromCharCode = String.fromCharCode;
+  String.fromCharCode = function() {
+   location="XSSDETECTED";
+  };
+})();
+</script>
